@@ -4,4 +4,4 @@ In 3B1B's Neural Network Series, the legendary Professor Sanderson teaches us th
 
 Here I try to follow along and make it with just Python and Numpy (consider numpy part of vanilla python).
 
-Known as the "Hello World" of NNs, My use of ReLU and Softmax activation functions are necessary to make this grandiose neural network more efficient and effective such that you and I may identify digits better.
+Known as the "Hello World" of NNs, my use of ReLU and Softmax activation functions are absolutely necessary to make it more efficient and effective such that you and I may identify digits better.
