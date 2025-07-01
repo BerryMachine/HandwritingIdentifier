@@ -52,7 +52,7 @@ def bw_prop(Z1, A1, Z2, A2, W2, X, Y):
     dW2 = (1 / m) * (dZ2 @ A1.T)
     db2 = (1 / m) * np.sum(dZ2, axis=1, keepdims=True)
 
-    dZ1 = (Z1 > 0) * W2.T @ dZ2
+    dZ1 = (Z1 > 0) * (W2.T @ dZ2)
     dW1 = (1 / m) * (dZ1 @ X.T)
     db1 = (1 / m) * np.sum(dZ1, axis=1, keepdims=True)
     
@@ -77,12 +77,14 @@ def gradient_descent(X, Y, iter, scale):
         W2 -= scale * dW2
         b2 -= scale * db2
 
-        if i and i % 100 == 0:
+        if i % 50 == 0:
             print(f"{i}: loss = {compute_loss(Y, A2):.6f}")
         
-        return W1, b1, W2, b2
+    return W1, b1, W2, b2
 
 # TRAIN
 X = read_images("data/train-images.idx3-ubyte")
 Y = read_labels("data/train-labels.idx1-ubyte")
+print("go")
 W1, b1, W2, b2 = gradient_descent(X, Y, ITERS, SCALE)
+print("done")
